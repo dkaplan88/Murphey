@@ -1,0 +1,19 @@
+<%= form_for @item do |x| %>
+
+<p>
+	<%= x.label "Category" %>
+	<%= x.collection_select(:category_id, @category, :id, :name) %>
+</p>
+
+<p>	
+	<%= x.label :name %>
+	<%= x.text_field :name %>
+</p>
+	
+<p>	
+	<%= x.label :cost %>
+	<%= x.number_field :cost %>
+</p>
+
+	<%= x.submit "Add Your Item" %>
+<% end %>

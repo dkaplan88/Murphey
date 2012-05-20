@@ -1,0 +1,22 @@
+<div>
+	<table style="text-align:center">
+		<thead style="text-align:center">
+			<tr>
+				<th>Type</th>
+				<th>Name</th>
+				<th>Cost</th>
+				<th>Avg. Rating</th>
+			</tr>
+		</thead>
+		<tbody>	
+	<% @item.sort{ |a,b| a.category.name <=> b.category.name }.each do |item| %>
+			<tr style="text-align:center">
+				<td><%= link_to item.category.name, category_url(item.category.id) %></td>
+				<td><%= link_to item.name, item_url(item.id) %></td>
+				<td><%= number_to_currency(item.cost) %></td>
+				<td><%= item.reviews.average("rating") %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>	
+</div>

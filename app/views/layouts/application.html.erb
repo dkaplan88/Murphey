@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Murphey</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="header">
+		<h1><%= link_to "Murpheys Menu", root_url %></h1>
+			<% if session[:login_id] %>
+			<p>Hi <%= @user.login %>! Thanks for checking out Murpheys!</p> 
+			<%= link_to "Rate an Item", new_review_url %> | 
+			<%= link_to "Add A New Item", new_menue_url %> | 
+			<%= link_to "Logout", logout_url %> 
+			<% else %>
+			<p>Please Login to Rate and Add Items!</p>
+			<%= link_to "Login", new_user_url %>
+			<% end %>
+	</div>
+
+	<% if flash[:notice] %>
+	  <p style="color: white; background: red; padding: 4px">
+	  <%= flash[:notice] %>
+	  </p>
+	<% end %>
+
+<%= yield %>
+
+</body>
+</html>

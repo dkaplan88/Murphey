@@ -1,0 +1,11 @@
+<h1>
+	<b><%= link_to @item.category.name, category_url(@item.category.id) %></b>
+</h1>
+
+<p><%= @item.name %> costs <%= number_to_currency(@item.cost) %></p>
+
+<h2>Reviews</h2>
+<% @item.reviews.each do |r| %>
+<p><b><%= r.user.login %>:</b> <%= r.body %></p>
+<% end %>
+

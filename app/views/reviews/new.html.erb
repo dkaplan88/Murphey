@@ -1,0 +1,29 @@
+<%= form_for @review do |x| %>
+
+<p>
+	<%= x.label "Item" %>
+	<%= x.collection_select(:item_id, @item, :id, :name) %>
+</p>
+
+<p>
+	<%= x.label "User" %>
+	<%= x.collection_select(:user_id, @user, :id, :login	) %>
+</p>
+
+<p>	
+	<%= x.label :title %>
+	<%= x.text_field :title %>
+</p>
+	
+<p>	
+	<%= x.label :rating %>
+	<%= x.number_field :rating %>
+</p>
+
+<p>	
+	<%= x.label :body %>
+	<%= x.text_area :body, :rows => 4 %>
+</p>
+
+	<%= x.submit "Add Your Item" %>
+<% end %>

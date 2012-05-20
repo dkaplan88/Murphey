@@ -1,0 +1,5 @@
+<h1><%= @category.name %></h1>
+<% @category.items.each do |x| %>
+<p>	<%= link_to x.name, item_url(x.id) %> costs <%= number_to_currency(x.cost) %></p>
+	<% end %>
+	
