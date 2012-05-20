@@ -6,7 +6,8 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @item = Item.all
-    @user = User.all
+    
+    @users = User.all
   end
   
   def create 
